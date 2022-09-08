@@ -1,0 +1,980 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="UNIT_TESTModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="SUSPLAN_DOCUMENTS">
+          <Key>
+            <PropertyRef Name="DOCUMENT_ID" />
+          </Key>
+          <Property Name="DOCUMENT_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NODE_ID" Type="int" />
+          <Property Name="DOCUMENT_LABEL" Type="varchar" MaxLength="200" />
+          <Property Name="PHYSICAL_NAME" Type="varchar" MaxLength="200" />
+          <Property Name="CREATE_DATE" Type="datetime" />
+          <Property Name="UPDATE_DATE" Type="datetime" />
+          <Property Name="STATUS" Type="varchar" MaxLength="1" />
+          <Property Name="CHECKOUT_USER_ID" Type="varchar" MaxLength="100" />
+          <Property Name="CHECKOUT_DATE" Type="datetime" />
+          <Property Name="DOC_CASCADES_YN" Type="varchar" MaxLength="1" />
+          <Property Name="DOC_NOTES" Type="varchar" MaxLength="4000" />
+          <Property Name="TOC_ID" Type="int" />
+          <Property Name="TYPE" Type="varchar" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="SUSPLAN_NODES">
+          <Key>
+            <PropertyRef Name="NODE_ID" />
+          </Key>
+          <Property Name="NODE_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PREVIOUS_NODE_ID" Type="int" />
+          <Property Name="NEXT_NODE_ID" Type="int" />
+          <Property Name="PARENT_ID" Type="int" />
+          <Property Name="FIRST_CHILD_ID" Type="int" />
+          <Property Name="LEVEL_NUMBER" Type="int" />
+          <Property Name="DESCRIPTION" Type="varchar" MaxLength="60" />
+          <Property Name="L1_CAPTION" Type="varchar" MaxLength="30" />
+          <Property Name="L2_CAPTION" Type="varchar" MaxLength="30" />
+          <Property Name="L3_CAPTION" Type="varchar" MaxLength="30" />
+          <Property Name="L4_CAPTION" Type="varchar" MaxLength="30" />
+          <Property Name="L5_CAPTION" Type="varchar" MaxLength="30" />
+          <Property Name="L6_CAPTION" Type="varchar" MaxLength="30" />
+          <Property Name="L7_CAPTION" Type="varchar" MaxLength="30" />
+          <Property Name="L8_CAPTION" Type="varchar" MaxLength="30" />
+          <Property Name="L9_CAPTION" Type="varchar" MaxLength="30" />
+          <Property Name="L10_CAPTION" Type="varchar" MaxLength="30" />
+          <Property Name="DOCDIRECTORY_ID" Type="varchar" MaxLength="1" />
+          <Property Name="group_id" Type="varchar" MaxLength="4" />
+          <Property Name="ABS_PATH" Type="varchar" MaxLength="200" />
+          <Property Name="Include" Type="varchar" MaxLength="1" />
+        </EntityType>
+        <EntityType Name="SUSPLAN_PARMS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="UPDATE_DATE" Type="datetime" />
+          <Property Name="ADLIB_VERSION" Type="varchar" MaxLength="10" />
+          <Property Name="DOC_STD_LOCATION_YN" Type="varchar" MaxLength="1" />
+          <Property Name="DOC_DIRECTORY" Type="varchar" MaxLength="300" />
+          <Property Name="DOC_DIRECTORY_B" Type="varchar" MaxLength="300" />
+          <Property Name="DOC_DIRECTORY_C" Type="varchar" MaxLength="300" />
+          <Property Name="DOC_DIRECTORY_D" Type="varchar" MaxLength="300" />
+          <Property Name="PAGE_TITLE" Type="varchar" MaxLength="100" />
+          <Property Name="ASST_ENABLED_YN" Type="varchar" MaxLength="1" />
+          <Property Name="SVC_RSTRT_ENABLED_YN" Type="varchar" MaxLength="1" />
+          <Property Name="ADLIB_SVC_NAME" Type="varchar" MaxLength="100" />
+          <Property Name="CRYMON_SVC_NAME" Type="varchar" MaxLength="100" />
+          <Property Name="RPTMON_SVC_NAME" Type="varchar" MaxLength="100" />
+          <Property Name="COLOR_MAIN_LIGHT" Type="varchar" MaxLength="7" />
+          <Property Name="COLOR_MAIN_MEDIUM" Type="varchar" MaxLength="7" />
+          <Property Name="COLOR_MAIN_DARK" Type="varchar" MaxLength="7" />
+          <Property Name="COLOR_ALT_LIGHT" Type="varchar" MaxLength="7" />
+          <Property Name="COLOR_ALT_MEDIUM" Type="varchar" MaxLength="7" />
+          <Property Name="COLOR_ALT_DARK" Type="varchar" MaxLength="7" />
+          <Property Name="PWD_MIN_LENGTH" Type="int" />
+          <Property Name="PWD_MAX_LENGTH" Type="int" />
+          <Property Name="PWD_EXP_DAYS" Type="int" />
+          <Property Name="PWD_MUST_INCL_NUMBER_YN" Type="varchar" MaxLength="1" />
+          <Property Name="PWD_MUST_INCL_LETTER_YN" Type="varchar" MaxLength="1" />
+          <Property Name="PWD_MUST_INCL_UC_YN" Type="varchar" MaxLength="1" />
+          <Property Name="PWD_MUST_INCL_LC_YN" Type="varchar" MaxLength="1" />
+          <Property Name="PWD_MUST_INCL_SPECIAL_YN" Type="varchar" MaxLength="1" />
+          <Property Name="PWD_HISTORY" Type="int" />
+          <Property Name="PWD_TRIES" Type="int" />
+          <Property Name="CRYMON_OUTPUT_TYPE" Type="varchar" MaxLength="1" />
+          <Property Name="CRYMON_SLEEP_SECS" Type="int" />
+          <Property Name="RPTMON_SLEEP_SECS" Type="int" />
+          <Property Name="RPTMON_LONG_SLEEP_SECS" Type="int" />
+          <Property Name="EXTRACT_STATUS" Type="varchar" MaxLength="1" />
+          <Property Name="EXTRACT_START" Type="datetime" />
+          <Property Name="EXTRACT_END" Type="datetime" />
+          <Property Name="SMTP_SERVER" Type="varchar" MaxLength="100" />
+          <Property Name="HEADING_SUFFIX" Type="varchar" MaxLength="10" />
+          <Property Name="MS_CODE_UPDATE_YN" Type="varchar" MaxLength="1" />
+          <Property Name="SP_DATABASE_VERSION" Type="varchar" MaxLength="10" />
+          <Property Name="AUTOSAVE_MINUTES" Type="int" />
+          <Property Name="SESSION_TIMEOUT_MINUTES" Type="int" />
+          <Property Name="LDAP_AUTHENTICATION_YN" Type="varchar" MaxLength="1" />
+          <Property Name="LDAP_HOST" Type="varchar" MaxLength="300" />
+          <Property Name="LDAP_BIND_USERID" Type="varchar" MaxLength="300" />
+          <Property Name="LDAP_BIND_PASSWORD" Type="varchar" MaxLength="60" />
+          <Property Name="LDAP_HOST_TYPE" Type="varchar" MaxLength="1" />
+          <Property Name="LDAP_CONTEXT" Type="varchar" MaxLength="300" />
+          <Property Name="LDAP_OBJECTCLASS" Type="varchar" MaxLength="300" />
+          <Property Name="EXTERNAL_AUTHENTICATION_YN" Type="varchar" MaxLength="1" />
+          <Property Name="EXT_AUTH_COOKIE_NAME" Type="varchar" MaxLength="20" />
+          <Property Name="EXT_AUTH_DELETE_COOKIE_YN" Type="varchar" MaxLength="1" />
+          <Property Name="SMTP_SERVER_USERID" Type="varchar" MaxLength="60" />
+          <Property Name="SMTP_SERVER_PASSWORD" Type="varchar" MaxLength="60" />
+          <Property Name="SMTP_SERVER_SSL_YN" Type="varchar" MaxLength="1" />
+          <Property Name="NOTIFICATION_PROVIDER" Type="varchar" MaxLength="1" />
+          <Property Name="NOTIFICATION_USER_LOC" Type="varchar" MaxLength="1" />
+          <Property Name="NOTIFICATION_SERVER_URL" Type="varchar" MaxLength="1000" />
+          <Property Name="NOTIF_USERS_REFRESH" Type="varchar" MaxLength="1" />
+          <Property Name="NOTIF_USERS_LAST_REFRESH" Type="datetime" />
+          <Property Name="SURVEY_RENAME" Type="varchar" MaxLength="30" />
+          <Property Name="SURVEY_RENAME_PLURAL" Type="varchar" MaxLength="30" />
+          <Property Name="NOTIFICATION_SHOW_USERS" Type="varchar" MaxLength="1" />
+          <Property Name="GEN_REPORT_TIMESTAMP_YN" Type="varchar" MaxLength="1" />
+          <Property Name="EMAIL_FORGOTTEN_PASSWORD_YN" Type="varchar" MaxLength="1" />
+          <Property Name="FORGOTTEN_PASSWORD_MSG" Type="varchar" MaxLength="600" />
+          <Property Name="GEN_REPORT_NATIVEAPPS_YN" Type="varchar" MaxLength="1" />
+          <Property Name="SMTP_RETURNEMAIL" Type="varchar" MaxLength="100" />
+          <Property Name="SP_GROUPS_YN" Type="varchar" MaxLength="1" />
+          <Property Name="NAVARRE_YN" Type="varchar" MaxLength="1" />
+          <Property Name="NAVARRE_DB" Type="varchar" MaxLength="100" />
+          <Property Name="NAVARRE_SERVER" Type="varchar" MaxLength="100" />
+          <Property Name="NAVARRE_USER" Type="varchar" MaxLength="100" />
+          <Property Name="NAVARRE_PASS" Type="varchar" MaxLength="100" />
+          <Property Name="IDASH_IP" Type="varchar" MaxLength="100" />
+          <Property Name="IDASH_INSTANCE_NAME" Type="varchar" MaxLength="100" />
+          <Property Name="IDASH_PORT" Type="int" />
+          <Property Name="notification_api_url" Type="varchar" MaxLength="1000" />
+          <Property Name="SPMnuServerID" Type="varchar" MaxLength="100" />
+          <Property Name="SPMnuUserID" Type="varchar" MaxLength="100" />
+          <Property Name="SPMnuPassword" Type="varchar" MaxLength="100" />
+          <Property Name="SPMnuDBName" Type="varchar" MaxLength="100" />
+          <Property Name="EmailPending" Type="varchar" MaxLength="200" />
+          <Property Name="EmailApprove" Type="varchar" MaxLength="200" />
+          <Property Name="LDAP_email" Type="varchar" MaxLength="1" />
+          <Property Name="MIR3_REFRESH" Type="varchar" MaxLength="30" />
+          <Property Name="INCIDENTTNAME" Type="varchar" MaxLength="100" />
+          <Property Name="INCIDENTBNAME" Type="varchar" MaxLength="100" />
+          <Property Name="HOME_TAB" Type="varchar" MaxLength="100" />
+          <Property Name="BIND_CONTEXT" Type="varchar" MaxLength="300" />
+          <Property Name="USER_INIT_NAME" Type="varchar" MaxLength="100" />
+          <Property Name="USER_INIT_PASS" Type="varchar" MaxLength="50" />
+          <Property Name="USER_INIT_PASS_KEY" Type="varchar(max)" />
+          <Property Name="USER_INIT_PASS_IV" Type="varchar(max)" />
+          <Property Name="USER_INIT_CUST_ID" Type="int" />
+          <Property Name="USER_INIT_TEMP_ID" Type="int" />
+          <Property Name="USER_INIT_URL" Type="varchar(max)" />
+          <Property Name="LDAP_RETRY" Type="int" />
+          <Property Name="SIGNON_IMG" Type="varchar" MaxLength="100" />
+          <Property Name="SAML_ISSUER_CERT" Type="varchar" MaxLength="500" />
+          <Property Name="SAML_SLO_URL" Type="varchar" MaxLength="500" />
+          <Property Name="SAML_URL" Type="varchar" MaxLength="500" />
+          <Property Name="SAML_YN" Type="varchar" MaxLength="1" />
+          <Property Name="DOC_TAB" Type="varchar" MaxLength="20" />
+          <Property Name="DELETE_DOC_YN" Type="varchar" MaxLength="1" />
+          <Property Name="DISABLED_USER_MSG" Type="varchar" MaxLength="600" />
+          <Property Name="EXPIRATION_DATE" Type="varchar" MaxLength="15" />
+          <Property Name="RESET_PASSWORD_MSG" Type="varchar" MaxLength="600" />
+          <Property Name="SP_APP_VERSION" Type="varchar" MaxLength="100" />
+          <Property Name="TOKEN_EXPIRATION" Type="int" />
+          <Property Name="USER_PROFILE_EDIT_YN" Type="varchar" MaxLength="1" />
+          <Property Name="MAX_TOTAL_USERS" Type="int" />
+          <Property Name="MAX_CONCURRENT_USERS" Type="int" />
+          <Property Name="USER_NAME_EDIT_YN" Type="varchar" MaxLength="1" />
+          <Property Name="USER_EMAIL_EDIT_YN" Type="varchar" MaxLength="1" />
+          <Property Name="USER_PHONE_EDIT_YN" Type="varchar" MaxLength="1" />
+          <Property Name="USER_TITLE_EDIT_YN" Type="varchar" MaxLength="1" />
+          <Property Name="USER_LOCATION_EDIT_YN" Type="varchar" MaxLength="1" />
+          <Property Name="USER_DEPARTMENT_EDIT_YN" Type="varchar" MaxLength="1" />
+          <Property Name="SMTP_USER_DISABLED_TPL" Type="varchar" MaxLength="600" />
+          <Property Name="SMTP_TOKEN_TPL" Type="varchar" MaxLength="600" />
+          <Property Name="SMTP_SERVER_PORT" Type="varchar" MaxLength="10" />
+          <Property Name="IDASH_TIMEOUT" Type="int" />
+        </EntityType>
+        <EntityType Name="SUSPLAN_REPORT_Q">
+          <Key>
+            <PropertyRef Name="RQ_ID" />
+          </Key>
+          <Property Name="RQ_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TOC_ID" Type="int" />
+          <Property Name="NODE_ID" Type="int" />
+          <Property Name="SURVEY_ID" Type="int" />
+          <Property Name="USER_ID" Type="varchar" MaxLength="100" />
+          <Property Name="STATUS" Type="varchar" MaxLength="1" />
+          <Property Name="STD_PAGE_NUMBERS" Type="varchar" MaxLength="1" />
+          <Property Name="STARTED_DATE" Type="datetime" />
+          <Property Name="SUBMITTED_DATE" Type="datetime" />
+          <Property Name="FINISHED_DATE" Type="datetime" />
+          <Property Name="TARGET_DIRECTORY" Type="varchar" MaxLength="200" />
+          <Property Name="TARGET_NAME" Type="varchar" MaxLength="200" />
+          <Property Name="RENAME_NAME" Type="varchar" MaxLength="200" />
+          <Property Name="CREATE_DOCUMENT_YN" Type="varchar" MaxLength="1" />
+          <Property Name="DOCUMENT_LABEL" Type="varchar" MaxLength="200" />
+          <Property Name="CONTROL_FILE" Type="varchar" MaxLength="300" />
+          <Property Name="ERROR_MESSAGE" Type="varchar" MaxLength="500" />
+          <Property Name="FIRST_SEC_ID" Type="int" />
+        </EntityType>
+        <EntityType Name="SUSPLAN_SEC_HDR">
+          <Key>
+            <PropertyRef Name="SECTION_ID" />
+          </Key>
+          <Property Name="SECTION_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TOC_ID" Type="int" />
+          <Property Name="SECTION_NAME" Type="varchar" MaxLength="200" />
+          <Property Name="NEXT_SECTION_ID" Type="int" />
+          <Property Name="PREVIOUS_SECTION_ID" Type="int" />
+          <Property Name="PARENT_SECTION_ID" Type="int" />
+          <Property Name="CHILD_SECTION_ID" Type="int" />
+          <Property Name="FIRST_TOCDOC_ID" Type="int" />
+        </EntityType>
+        <EntityType Name="SUSPLAN_TOC_DOCUMENT">
+          <Key>
+            <PropertyRef Name="TOCDOC_ID" />
+          </Key>
+          <Property Name="TOCDOC_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SECTION_ID" Type="int" />
+          <Property Name="PREVIOUS_TOCDOC_ID" Type="int" />
+          <Property Name="NEXT_TOCDOC_ID" Type="int" />
+          <Property Name="DOCUMENT_LABEL" Type="varchar" MaxLength="200" />
+          <Property Name="DOC_OPTION" Type="int" />
+        </EntityType>
+        <EntityType Name="SUSPLAN_TOC_HEADER">
+          <Key>
+            <PropertyRef Name="TOC_ID" />
+          </Key>
+          <Property Name="TOC_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NODE_ID" Type="int" />
+          <Property Name="REPORT_NAME" Type="varchar" MaxLength="100" />
+          <Property Name="TOC_TYPE" Type="varchar" MaxLength="1" />
+          <Property Name="FIRST_SECTION_ID" Type="int" />
+          <Property Name="TOC_CASCADES_YN" Type="varchar" MaxLength="1" />
+          <Property Name="TOC_PAGE" Type="int" />
+          <Property Name="FOOTER_TEXT_LEFT" Type="varchar" MaxLength="150" />
+          <Property Name="FOOTER_TEXT_CENTER" Type="varchar" MaxLength="150" />
+          <Property Name="FOOTER_TEXT_RIGHT" Type="varchar" MaxLength="150" />
+          <Property Name="STD_PAGE_NUMBERS" Type="varchar" MaxLength="1" />
+          <Property Name="TOC_LAYOUT" Type="varchar" MaxLength="1" />
+          <Property Name="TOC_LEFT_MARGIN" Type="varchar" MaxLength="5" />
+          <Property Name="TOC_RIGHT_MARGIN" Type="varchar" MaxLength="5" />
+          <Property Name="TOC_FONT" Type="varchar" MaxLength="2" />
+          <Property Name="TOC_FONT_SIZE" Type="varchar" MaxLength="5" />
+          <Property Name="HEADER_FONT" Type="varchar" MaxLength="2" />
+          <Property Name="HEADER_FONT_SIZE" Type="varchar" MaxLength="5" />
+          <Property Name="HEADER_TEXT" Type="varchar" MaxLength="80" />
+          <Property Name="FOOTER_FONT" Type="varchar" MaxLength="2" />
+          <Property Name="FOOTER_FONT_SIZE" Type="varchar" MaxLength="5" />
+          <Property Name="FOOTER_START_ON_DOC" Type="int" />
+          <Property Name="HEADER_START_ON_DOC" Type="int" />
+          <Property Name="FOOTER_MARGIN_B" Type="varchar" MaxLength="3" />
+          <Property Name="FOOTER_MARGIN_R" Type="varchar" MaxLength="3" />
+          <Property Name="FOOTER_MARGIN_L" Type="varchar" MaxLength="3" />
+          <Property Name="COVER_PAGE" Type="varchar" MaxLength="200" />
+          <Property Name="COVER_PAGE_ID" Type="int" />
+          <Property Name="COVER_PAGE_YN" Type="varchar" MaxLength="1" />
+          <Property Name="TOC_YN" Type="varchar" MaxLength="1" />
+          <Property Name="FOOTER_OPT_C" Type="varchar" MaxLength="2" />
+          <Property Name="FOOTER_OPT_R" Type="varchar" MaxLength="2" />
+          <Property Name="FOOTER_OPT_L" Type="varchar" MaxLength="2" />
+          <Property Name="FOOTER_YN" Type="varchar" MaxLength="1" />
+          <Property Name="SVY" Type="int" />
+        </EntityType>
+        <Association Name="FK_dbo_SUSPLAN_DOCUMENTS_1">
+          <End Role="SUSPLAN_NODES" Type="Self.SUSPLAN_NODES" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="SUSPLAN_DOCUMENTS" Type="Self.SUSPLAN_DOCUMENTS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SUSPLAN_NODES">
+              <PropertyRef Name="NODE_ID" />
+            </Principal>
+            <Dependent Role="SUSPLAN_DOCUMENTS">
+              <PropertyRef Name="NODE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_SUSPLAN_SEC_HDR_1">
+          <End Role="SUSPLAN_TOC_HEADER" Type="Self.SUSPLAN_TOC_HEADER" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="SUSPLAN_SEC_HDR" Type="Self.SUSPLAN_SEC_HDR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SUSPLAN_TOC_HEADER">
+              <PropertyRef Name="TOC_ID" />
+            </Principal>
+            <Dependent Role="SUSPLAN_SEC_HDR">
+              <PropertyRef Name="TOC_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_SUSPLAN_TOC_HEADER_1">
+          <End Role="SUSPLAN_NODES" Type="Self.SUSPLAN_NODES" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="SUSPLAN_TOC_HEADER" Type="Self.SUSPLAN_TOC_HEADER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SUSPLAN_NODES">
+              <PropertyRef Name="NODE_ID" />
+            </Principal>
+            <Dependent Role="SUSPLAN_TOC_HEADER">
+              <PropertyRef Name="NODE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="UNIT_TESTModelStoreContainer">
+          <EntitySet Name="SUSPLAN_DOCUMENTS" EntityType="Self.SUSPLAN_DOCUMENTS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SUSPLAN_NODES" EntityType="Self.SUSPLAN_NODES" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SUSPLAN_PARMS" EntityType="Self.SUSPLAN_PARMS" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SUSPLAN_REPORT_Q" EntityType="Self.SUSPLAN_REPORT_Q" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SUSPLAN_SEC_HDR" EntityType="Self.SUSPLAN_SEC_HDR" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SUSPLAN_TOC_DOCUMENT" EntityType="Self.SUSPLAN_TOC_DOCUMENT" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SUSPLAN_TOC_HEADER" EntityType="Self.SUSPLAN_TOC_HEADER" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_dbo_SUSPLAN_DOCUMENTS_1" Association="Self.FK_dbo_SUSPLAN_DOCUMENTS_1">
+            <End Role="SUSPLAN_NODES" EntitySet="SUSPLAN_NODES" />
+            <End Role="SUSPLAN_DOCUMENTS" EntitySet="SUSPLAN_DOCUMENTS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_SUSPLAN_SEC_HDR_1" Association="Self.FK_dbo_SUSPLAN_SEC_HDR_1">
+            <End Role="SUSPLAN_TOC_HEADER" EntitySet="SUSPLAN_TOC_HEADER" />
+            <End Role="SUSPLAN_SEC_HDR" EntitySet="SUSPLAN_SEC_HDR" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_SUSPLAN_TOC_HEADER_1" Association="Self.FK_dbo_SUSPLAN_TOC_HEADER_1">
+            <End Role="SUSPLAN_NODES" EntitySet="SUSPLAN_NODES" />
+            <End Role="SUSPLAN_TOC_HEADER" EntitySet="SUSPLAN_TOC_HEADER" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="UNIT_TESTModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="SUSPLAN_DOCUMENTS">
+          <Key>
+            <PropertyRef Name="DOCUMENT_ID" />
+          </Key>
+          <Property Name="DOCUMENT_ID" Type="Int32" Nullable="false" />
+          <Property Name="NODE_ID" Type="Int32" />
+          <Property Name="DOCUMENT_LABEL" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="PHYSICAL_NAME" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="CREATE_DATE" Type="DateTime" Precision="3" />
+          <Property Name="UPDATE_DATE" Type="DateTime" Precision="3" />
+          <Property Name="STATUS" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="CHECKOUT_USER_ID" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CHECKOUT_DATE" Type="DateTime" Precision="3" />
+          <Property Name="DOC_CASCADES_YN" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="DOC_NOTES" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="TOC_ID" Type="Int32" />
+          <Property Name="TYPE" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="SUSPLAN_NODES" Relationship="Self.FK_dbo_SUSPLAN_DOCUMENTS_1" FromRole="SUSPLAN_DOCUMENTS" ToRole="SUSPLAN_NODES" />
+        </EntityType>
+        <EntityType Name="SUSPLAN_NODES">
+          <Key>
+            <PropertyRef Name="NODE_ID" />
+          </Key>
+          <Property Name="NODE_ID" Type="Int32" Nullable="false" />
+          <Property Name="PREVIOUS_NODE_ID" Type="Int32" />
+          <Property Name="NEXT_NODE_ID" Type="Int32" />
+          <Property Name="PARENT_ID" Type="Int32" />
+          <Property Name="FIRST_CHILD_ID" Type="Int32" />
+          <Property Name="LEVEL_NUMBER" Type="Int32" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="L1_CAPTION" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="L2_CAPTION" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="L3_CAPTION" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="L4_CAPTION" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="L5_CAPTION" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="L6_CAPTION" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="L7_CAPTION" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="L8_CAPTION" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="L9_CAPTION" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="L10_CAPTION" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="DOCDIRECTORY_ID" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="group_id" Type="String" MaxLength="4" FixedLength="false" Unicode="false" />
+          <Property Name="ABS_PATH" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Include" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="SUSPLAN_DOCUMENTS" Relationship="Self.FK_dbo_SUSPLAN_DOCUMENTS_1" FromRole="SUSPLAN_NODES" ToRole="SUSPLAN_DOCUMENTS" />
+          <NavigationProperty Name="SUSPLAN_TOC_HEADER" Relationship="Self.FK_dbo_SUSPLAN_TOC_HEADER_1" FromRole="SUSPLAN_NODES" ToRole="SUSPLAN_TOC_HEADER" />
+        </EntityType>
+        <EntityType Name="SUSPLAN_PARMS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="UPDATE_DATE" Type="DateTime" Precision="3" />
+          <Property Name="ADLIB_VERSION" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="DOC_STD_LOCATION_YN" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="DOC_DIRECTORY" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="DOC_DIRECTORY_B" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="DOC_DIRECTORY_C" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="DOC_DIRECTORY_D" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="PAGE_TITLE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ASST_ENABLED_YN" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="SVC_RSTRT_ENABLED_YN" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="ADLIB_SVC_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CRYMON_SVC_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="RPTMON_SVC_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="COLOR_MAIN_LIGHT" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+          <Property Name="COLOR_MAIN_MEDIUM" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+          <Property Name="COLOR_MAIN_DARK" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+          <Property Name="COLOR_ALT_LIGHT" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+          <Property Name="COLOR_ALT_MEDIUM" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+          <Property Name="COLOR_ALT_DARK" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+          <Property Name="PWD_MIN_LENGTH" Type="Int32" />
+          <Property Name="PWD_MAX_LENGTH" Type="Int32" />
+          <Property Name="PWD_EXP_DAYS" Type="Int32" />
+          <Property Name="PWD_MUST_INCL_NUMBER_YN" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="PWD_MUST_INCL_LETTER_YN" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="PWD_MUST_INCL_UC_YN" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="PWD_MUST_INCL_LC_YN" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="PWD_MUST_INCL_SPECIAL_YN" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="PWD_HISTORY" Type="Int32" />
+          <Property Name="PWD_TRIES" Type="Int32" />
+          <Property Name="CRYMON_OUTPUT_TYPE" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="CRYMON_SLEEP_SECS" Type="Int32" />
+          <Property Name="RPTMON_SLEEP_SECS" Type="Int32" />
+          <Property Name="RPTMON_LONG_SLEEP_SECS" Type="Int32" />
+          <Property Name="EXTRACT_STATUS" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="EXTRACT_START" Type="DateTime" Precision="3" />
+          <Property Name="EXTRACT_END" Type="DateTime" Precision="3" />
+          <Property Name="SMTP_SERVER" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="HEADING_SUFFIX" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="MS_CODE_UPDATE_YN" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="SP_DATABASE_VERSION" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="AUTOSAVE_MINUTES" Type="Int32" />
+          <Property Name="SESSION_TIMEOUT_MINUTES" Type="Int32" />
+          <Property Name="LDAP_AUTHENTICATION_YN" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="LDAP_HOST" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="LDAP_BIND_USERID" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="LDAP_BIND_PASSWORD" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="LDAP_HOST_TYPE" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="LDAP_CONTEXT" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="LDAP_OBJECTCLASS" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="EXTERNAL_AUTHENTICATION_YN" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="EXT_AUTH_COOKIE_NAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="EXT_AUTH_DELETE_COOKIE_YN" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="SMTP_SERVER_USERID" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="SMTP_SERVER_PASSWORD" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="SMTP_SERVER_SSL_YN" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="NOTIFICATION_PROVIDER" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="NOTIFICATION_USER_LOC" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="NOTIFICATION_SERVER_URL" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="NOTIF_USERS_REFRESH" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="NOTIF_USERS_LAST_REFRESH" Type="DateTime" Precision="3" />
+          <Property Name="SURVEY_RENAME" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="SURVEY_RENAME_PLURAL" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="NOTIFICATION_SHOW_USERS" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="GEN_REPORT_TIMESTAMP_YN" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="EMAIL_FORGOTTEN_PASSWORD_YN" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="FORGOTTEN_PASSWORD_MSG" Type="String" MaxLength="600" FixedLength="false" Unicode="false" />
+          <Property Name="GEN_REPORT_NATIVEAPPS_YN" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="SMTP_RETURNEMAIL" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="SP_GROUPS_YN" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="NAVARRE_YN" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="NAVARRE_DB" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="NAVARRE_SERVER" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="NAVARRE_USER" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="NAVARRE_PASS" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="IDASH_IP" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="IDASH_INSTANCE_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="IDASH_PORT" Type="Int32" />
+          <Property Name="notification_api_url" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="SPMnuServerID" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="SPMnuUserID" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="SPMnuPassword" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="SPMnuDBName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="EmailPending" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="EmailApprove" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="LDAP_email" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="MIR3_REFRESH" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="INCIDENTTNAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="INCIDENTBNAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="HOME_TAB" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="BIND_CONTEXT" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="USER_INIT_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="USER_INIT_PASS" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="USER_INIT_PASS_KEY" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="USER_INIT_PASS_IV" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="USER_INIT_CUST_ID" Type="Int32" />
+          <Property Name="USER_INIT_TEMP_ID" Type="Int32" />
+          <Property Name="USER_INIT_URL" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="LDAP_RETRY" Type="Int32" />
+          <Property Name="SIGNON_IMG" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="SAML_ISSUER_CERT" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="SAML_SLO_URL" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="SAML_URL" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="SAML_YN" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="DOC_TAB" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="DELETE_DOC_YN" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="DISABLED_USER_MSG" Type="String" MaxLength="600" FixedLength="false" Unicode="false" />
+          <Property Name="EXPIRATION_DATE" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="RESET_PASSWORD_MSG" Type="String" MaxLength="600" FixedLength="false" Unicode="false" />
+          <Property Name="SP_APP_VERSION" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="TOKEN_EXPIRATION" Type="Int32" />
+          <Property Name="USER_PROFILE_EDIT_YN" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="MAX_TOTAL_USERS" Type="Int32" />
+          <Property Name="MAX_CONCURRENT_USERS" Type="Int32" />
+          <Property Name="USER_NAME_EDIT_YN" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="USER_EMAIL_EDIT_YN" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="USER_PHONE_EDIT_YN" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="USER_TITLE_EDIT_YN" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="USER_LOCATION_EDIT_YN" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="USER_DEPARTMENT_EDIT_YN" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="SMTP_USER_DISABLED_TPL" Type="String" MaxLength="600" FixedLength="false" Unicode="false" />
+          <Property Name="SMTP_TOKEN_TPL" Type="String" MaxLength="600" FixedLength="false" Unicode="false" />
+          <Property Name="SMTP_SERVER_PORT" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="IDASH_TIMEOUT" Type="Int32" />
+        </EntityType>
+        <EntityType Name="SUSPLAN_SEC_HDR">
+          <Key>
+            <PropertyRef Name="SECTION_ID" />
+          </Key>
+          <Property Name="SECTION_ID" Type="Int32" Nullable="false" />
+          <Property Name="TOC_ID" Type="Int32" />
+          <Property Name="SECTION_NAME" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="NEXT_SECTION_ID" Type="Int32" />
+          <Property Name="PREVIOUS_SECTION_ID" Type="Int32" />
+          <Property Name="PARENT_SECTION_ID" Type="Int32" />
+          <Property Name="CHILD_SECTION_ID" Type="Int32" />
+          <Property Name="FIRST_TOCDOC_ID" Type="Int32" />
+          <NavigationProperty Name="SUSPLAN_TOC_HEADER" Relationship="Self.FK_dbo_SUSPLAN_SEC_HDR_1" FromRole="SUSPLAN_SEC_HDR" ToRole="SUSPLAN_TOC_HEADER" />
+        </EntityType>
+        <EntityType Name="SUSPLAN_TOC_DOCUMENT">
+          <Key>
+            <PropertyRef Name="TOCDOC_ID" />
+          </Key>
+          <Property Name="TOCDOC_ID" Type="Int32" Nullable="false" />
+          <Property Name="SECTION_ID" Type="Int32" />
+          <Property Name="PREVIOUS_TOCDOC_ID" Type="Int32" />
+          <Property Name="NEXT_TOCDOC_ID" Type="Int32" />
+          <Property Name="DOCUMENT_LABEL" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="DOC_OPTION" Type="Int32" />
+        </EntityType>
+        <EntityType Name="SUSPLAN_TOC_HEADER">
+          <Key>
+            <PropertyRef Name="TOC_ID" />
+          </Key>
+          <Property Name="TOC_ID" Type="Int32" Nullable="false" />
+          <Property Name="NODE_ID" Type="Int32" />
+          <Property Name="REPORT_NAME" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="TOC_TYPE" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="FIRST_SECTION_ID" Type="Int32" />
+          <Property Name="TOC_CASCADES_YN" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="TOC_PAGE" Type="Int32" />
+          <Property Name="FOOTER_TEXT_LEFT" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="FOOTER_TEXT_CENTER" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="FOOTER_TEXT_RIGHT" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="STD_PAGE_NUMBERS" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="TOC_LAYOUT" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="TOC_LEFT_MARGIN" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="TOC_RIGHT_MARGIN" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="TOC_FONT" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="TOC_FONT_SIZE" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="HEADER_FONT" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="HEADER_FONT_SIZE" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="HEADER_TEXT" Type="String" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="FOOTER_FONT" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="FOOTER_FONT_SIZE" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="FOOTER_START_ON_DOC" Type="Int32" />
+          <Property Name="HEADER_START_ON_DOC" Type="Int32" />
+          <Property Name="FOOTER_MARGIN_B" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="FOOTER_MARGIN_R" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="FOOTER_MARGIN_L" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="COVER_PAGE" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="COVER_PAGE_ID" Type="Int32" />
+          <Property Name="COVER_PAGE_YN" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="TOC_YN" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="FOOTER_OPT_C" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="FOOTER_OPT_R" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="FOOTER_OPT_L" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="FOOTER_YN" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="SVY" Type="Int32" />
+          <NavigationProperty Name="SUSPLAN_NODES" Relationship="Self.FK_dbo_SUSPLAN_TOC_HEADER_1" FromRole="SUSPLAN_TOC_HEADER" ToRole="SUSPLAN_NODES" />
+          <NavigationProperty Name="SUSPLAN_SEC_HDR" Relationship="Self.FK_dbo_SUSPLAN_SEC_HDR_1" FromRole="SUSPLAN_TOC_HEADER" ToRole="SUSPLAN_SEC_HDR" />
+          <NavigationProperty Name="SUSPLAN_REPORT_Q" Relationship="UNIT_TESTModel.FK_dbo_SUSPLAN_REPORT_Q_1" FromRole="SUSPLAN_TOC_HEADER" ToRole="SUSPLAN_REPORT_Q" />
+        </EntityType>
+        <Association Name="FK_dbo_SUSPLAN_DOCUMENTS_1">
+          <End Role="SUSPLAN_NODES" Type="Self.SUSPLAN_NODES" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="SUSPLAN_DOCUMENTS" Type="Self.SUSPLAN_DOCUMENTS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SUSPLAN_NODES">
+              <PropertyRef Name="NODE_ID" />
+            </Principal>
+            <Dependent Role="SUSPLAN_DOCUMENTS">
+              <PropertyRef Name="NODE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_SUSPLAN_TOC_HEADER_1">
+          <End Role="SUSPLAN_NODES" Type="Self.SUSPLAN_NODES" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="SUSPLAN_TOC_HEADER" Type="Self.SUSPLAN_TOC_HEADER" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SUSPLAN_NODES">
+              <PropertyRef Name="NODE_ID" />
+            </Principal>
+            <Dependent Role="SUSPLAN_TOC_HEADER">
+              <PropertyRef Name="NODE_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_SUSPLAN_SEC_HDR_1">
+          <End Role="SUSPLAN_TOC_HEADER" Type="Self.SUSPLAN_TOC_HEADER" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="SUSPLAN_SEC_HDR" Type="Self.SUSPLAN_SEC_HDR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SUSPLAN_TOC_HEADER">
+              <PropertyRef Name="TOC_ID" />
+            </Principal>
+            <Dependent Role="SUSPLAN_SEC_HDR">
+              <PropertyRef Name="TOC_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="UNIT_TESTContext" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="SUSPLAN_DOCUMENTS" EntityType="Self.SUSPLAN_DOCUMENTS" />
+          <EntitySet Name="SUSPLAN_NODES" EntityType="Self.SUSPLAN_NODES" />
+          <EntitySet Name="SUSPLAN_PARMS" EntityType="Self.SUSPLAN_PARMS" />
+          <EntitySet Name="SUSPLAN_SEC_HDR" EntityType="Self.SUSPLAN_SEC_HDR" />
+          <EntitySet Name="SUSPLAN_TOC_DOCUMENT" EntityType="Self.SUSPLAN_TOC_DOCUMENT" />
+          <EntitySet Name="SUSPLAN_TOC_HEADER" EntityType="Self.SUSPLAN_TOC_HEADER" />
+          <AssociationSet Name="FK_dbo_SUSPLAN_DOCUMENTS_1" Association="Self.FK_dbo_SUSPLAN_DOCUMENTS_1">
+            <End Role="SUSPLAN_NODES" EntitySet="SUSPLAN_NODES" />
+            <End Role="SUSPLAN_DOCUMENTS" EntitySet="SUSPLAN_DOCUMENTS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_SUSPLAN_TOC_HEADER_1" Association="Self.FK_dbo_SUSPLAN_TOC_HEADER_1">
+            <End Role="SUSPLAN_NODES" EntitySet="SUSPLAN_NODES" />
+            <End Role="SUSPLAN_TOC_HEADER" EntitySet="SUSPLAN_TOC_HEADER" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_SUSPLAN_SEC_HDR_1" Association="Self.FK_dbo_SUSPLAN_SEC_HDR_1">
+            <End Role="SUSPLAN_TOC_HEADER" EntitySet="SUSPLAN_TOC_HEADER" />
+            <End Role="SUSPLAN_SEC_HDR" EntitySet="SUSPLAN_SEC_HDR" />
+          </AssociationSet>
+          <EntitySet Name="SUSPLAN_REPORT_Q" EntityType="UNIT_TESTModel.SUSPLAN_REPORT_Q" />
+          <AssociationSet Name="FK_dbo_SUSPLAN_REPORT_Q_1" Association="UNIT_TESTModel.FK_dbo_SUSPLAN_REPORT_Q_1">
+            <End Role="SUSPLAN_TOC_HEADER" EntitySet="SUSPLAN_TOC_HEADER" />
+            <End Role="SUSPLAN_REPORT_Q" EntitySet="SUSPLAN_REPORT_Q" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="SUSPLAN_REPORT_Q">
+          <Key>
+            <PropertyRef Name="RQ_ID" />
+          </Key>
+          <Property Name="RQ_ID" Type="Int32" Nullable="false" />
+          <Property Name="TOC_ID" Type="Int32" />
+          <Property Name="NODE_ID" Type="Int32" />
+          <Property Name="SURVEY_ID" Type="Int32" />
+          <Property Name="USER_ID" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="STATUS" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="STD_PAGE_NUMBERS" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="STARTED_DATE" Type="DateTime" Precision="3" />
+          <Property Name="SUBMITTED_DATE" Type="DateTime" Precision="3" />
+          <Property Name="FINISHED_DATE" Type="DateTime" Precision="3" />
+          <Property Name="TARGET_DIRECTORY" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="TARGET_NAME" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="RENAME_NAME" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="CREATE_DOCUMENT_YN" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="DOCUMENT_LABEL" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="CONTROL_FILE" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="ERROR_MESSAGE" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="FIRST_SEC_ID" Type="Int32" />
+          <NavigationProperty Name="SUSPLAN_TOC_HEADER" Relationship="UNIT_TESTModel.FK_dbo_SUSPLAN_REPORT_Q_1" FromRole="SUSPLAN_REPORT_Q" ToRole="SUSPLAN_TOC_HEADER" />
+        </EntityType>
+        <Association Name="FK_dbo_SUSPLAN_REPORT_Q_1">
+          <End Type="UNIT_TESTModel.SUSPLAN_TOC_HEADER" Role="SUSPLAN_TOC_HEADER" Multiplicity="0..1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="UNIT_TESTModel.SUSPLAN_REPORT_Q" Role="SUSPLAN_REPORT_Q" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SUSPLAN_TOC_HEADER">
+              <PropertyRef Name="TOC_ID" />
+            </Principal>
+            <Dependent Role="SUSPLAN_REPORT_Q">
+              <PropertyRef Name="TOC_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="UNIT_TESTModelStoreContainer" CdmEntityContainer="UNIT_TESTContext">
+          <EntitySetMapping Name="SUSPLAN_DOCUMENTS">
+            <EntityTypeMapping TypeName="UNIT_TESTModel.SUSPLAN_DOCUMENTS">
+              <MappingFragment StoreEntitySet="SUSPLAN_DOCUMENTS">
+                <ScalarProperty Name="DOCUMENT_ID" ColumnName="DOCUMENT_ID" />
+                <ScalarProperty Name="NODE_ID" ColumnName="NODE_ID" />
+                <ScalarProperty Name="DOCUMENT_LABEL" ColumnName="DOCUMENT_LABEL" />
+                <ScalarProperty Name="PHYSICAL_NAME" ColumnName="PHYSICAL_NAME" />
+                <ScalarProperty Name="CREATE_DATE" ColumnName="CREATE_DATE" />
+                <ScalarProperty Name="UPDATE_DATE" ColumnName="UPDATE_DATE" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="CHECKOUT_USER_ID" ColumnName="CHECKOUT_USER_ID" />
+                <ScalarProperty Name="CHECKOUT_DATE" ColumnName="CHECKOUT_DATE" />
+                <ScalarProperty Name="DOC_CASCADES_YN" ColumnName="DOC_CASCADES_YN" />
+                <ScalarProperty Name="DOC_NOTES" ColumnName="DOC_NOTES" />
+                <ScalarProperty Name="TOC_ID" ColumnName="TOC_ID" />
+                <ScalarProperty Name="TYPE" ColumnName="TYPE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SUSPLAN_NODES">
+            <EntityTypeMapping TypeName="UNIT_TESTModel.SUSPLAN_NODES">
+              <MappingFragment StoreEntitySet="SUSPLAN_NODES">
+                <ScalarProperty Name="NODE_ID" ColumnName="NODE_ID" />
+                <ScalarProperty Name="PREVIOUS_NODE_ID" ColumnName="PREVIOUS_NODE_ID" />
+                <ScalarProperty Name="NEXT_NODE_ID" ColumnName="NEXT_NODE_ID" />
+                <ScalarProperty Name="PARENT_ID" ColumnName="PARENT_ID" />
+                <ScalarProperty Name="FIRST_CHILD_ID" ColumnName="FIRST_CHILD_ID" />
+                <ScalarProperty Name="LEVEL_NUMBER" ColumnName="LEVEL_NUMBER" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="L1_CAPTION" ColumnName="L1_CAPTION" />
+                <ScalarProperty Name="L2_CAPTION" ColumnName="L2_CAPTION" />
+                <ScalarProperty Name="L3_CAPTION" ColumnName="L3_CAPTION" />
+                <ScalarProperty Name="L4_CAPTION" ColumnName="L4_CAPTION" />
+                <ScalarProperty Name="L5_CAPTION" ColumnName="L5_CAPTION" />
+                <ScalarProperty Name="L6_CAPTION" ColumnName="L6_CAPTION" />
+                <ScalarProperty Name="L7_CAPTION" ColumnName="L7_CAPTION" />
+                <ScalarProperty Name="L8_CAPTION" ColumnName="L8_CAPTION" />
+                <ScalarProperty Name="L9_CAPTION" ColumnName="L9_CAPTION" />
+                <ScalarProperty Name="L10_CAPTION" ColumnName="L10_CAPTION" />
+                <ScalarProperty Name="DOCDIRECTORY_ID" ColumnName="DOCDIRECTORY_ID" />
+                <ScalarProperty Name="group_id" ColumnName="group_id" />
+                <ScalarProperty Name="ABS_PATH" ColumnName="ABS_PATH" />
+                <ScalarProperty Name="Include" ColumnName="Include" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SUSPLAN_PARMS">
+            <EntityTypeMapping TypeName="UNIT_TESTModel.SUSPLAN_PARMS">
+              <MappingFragment StoreEntitySet="SUSPLAN_PARMS">
+                <ScalarProperty Name="IDASH_TIMEOUT" ColumnName="IDASH_TIMEOUT" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="UPDATE_DATE" ColumnName="UPDATE_DATE" />
+                <ScalarProperty Name="ADLIB_VERSION" ColumnName="ADLIB_VERSION" />
+                <ScalarProperty Name="DOC_STD_LOCATION_YN" ColumnName="DOC_STD_LOCATION_YN" />
+                <ScalarProperty Name="DOC_DIRECTORY" ColumnName="DOC_DIRECTORY" />
+                <ScalarProperty Name="DOC_DIRECTORY_B" ColumnName="DOC_DIRECTORY_B" />
+                <ScalarProperty Name="DOC_DIRECTORY_C" ColumnName="DOC_DIRECTORY_C" />
+                <ScalarProperty Name="DOC_DIRECTORY_D" ColumnName="DOC_DIRECTORY_D" />
+                <ScalarProperty Name="PAGE_TITLE" ColumnName="PAGE_TITLE" />
+                <ScalarProperty Name="ASST_ENABLED_YN" ColumnName="ASST_ENABLED_YN" />
+                <ScalarProperty Name="SVC_RSTRT_ENABLED_YN" ColumnName="SVC_RSTRT_ENABLED_YN" />
+                <ScalarProperty Name="ADLIB_SVC_NAME" ColumnName="ADLIB_SVC_NAME" />
+                <ScalarProperty Name="CRYMON_SVC_NAME" ColumnName="CRYMON_SVC_NAME" />
+                <ScalarProperty Name="RPTMON_SVC_NAME" ColumnName="RPTMON_SVC_NAME" />
+                <ScalarProperty Name="COLOR_MAIN_LIGHT" ColumnName="COLOR_MAIN_LIGHT" />
+                <ScalarProperty Name="COLOR_MAIN_MEDIUM" ColumnName="COLOR_MAIN_MEDIUM" />
+                <ScalarProperty Name="COLOR_MAIN_DARK" ColumnName="COLOR_MAIN_DARK" />
+                <ScalarProperty Name="COLOR_ALT_LIGHT" ColumnName="COLOR_ALT_LIGHT" />
+                <ScalarProperty Name="COLOR_ALT_MEDIUM" ColumnName="COLOR_ALT_MEDIUM" />
+                <ScalarProperty Name="COLOR_ALT_DARK" ColumnName="COLOR_ALT_DARK" />
+                <ScalarProperty Name="PWD_MIN_LENGTH" ColumnName="PWD_MIN_LENGTH" />
+                <ScalarProperty Name="PWD_MAX_LENGTH" ColumnName="PWD_MAX_LENGTH" />
+                <ScalarProperty Name="PWD_EXP_DAYS" ColumnName="PWD_EXP_DAYS" />
+                <ScalarProperty Name="PWD_MUST_INCL_NUMBER_YN" ColumnName="PWD_MUST_INCL_NUMBER_YN" />
+                <ScalarProperty Name="PWD_MUST_INCL_LETTER_YN" ColumnName="PWD_MUST_INCL_LETTER_YN" />
+                <ScalarProperty Name="PWD_MUST_INCL_UC_YN" ColumnName="PWD_MUST_INCL_UC_YN" />
+                <ScalarProperty Name="PWD_MUST_INCL_LC_YN" ColumnName="PWD_MUST_INCL_LC_YN" />
+                <ScalarProperty Name="PWD_MUST_INCL_SPECIAL_YN" ColumnName="PWD_MUST_INCL_SPECIAL_YN" />
+                <ScalarProperty Name="PWD_HISTORY" ColumnName="PWD_HISTORY" />
+                <ScalarProperty Name="PWD_TRIES" ColumnName="PWD_TRIES" />
+                <ScalarProperty Name="CRYMON_OUTPUT_TYPE" ColumnName="CRYMON_OUTPUT_TYPE" />
+                <ScalarProperty Name="CRYMON_SLEEP_SECS" ColumnName="CRYMON_SLEEP_SECS" />
+                <ScalarProperty Name="RPTMON_SLEEP_SECS" ColumnName="RPTMON_SLEEP_SECS" />
+                <ScalarProperty Name="RPTMON_LONG_SLEEP_SECS" ColumnName="RPTMON_LONG_SLEEP_SECS" />
+                <ScalarProperty Name="EXTRACT_STATUS" ColumnName="EXTRACT_STATUS" />
+                <ScalarProperty Name="EXTRACT_START" ColumnName="EXTRACT_START" />
+                <ScalarProperty Name="EXTRACT_END" ColumnName="EXTRACT_END" />
+                <ScalarProperty Name="SMTP_SERVER" ColumnName="SMTP_SERVER" />
+                <ScalarProperty Name="HEADING_SUFFIX" ColumnName="HEADING_SUFFIX" />
+                <ScalarProperty Name="MS_CODE_UPDATE_YN" ColumnName="MS_CODE_UPDATE_YN" />
+                <ScalarProperty Name="SP_DATABASE_VERSION" ColumnName="SP_DATABASE_VERSION" />
+                <ScalarProperty Name="AUTOSAVE_MINUTES" ColumnName="AUTOSAVE_MINUTES" />
+                <ScalarProperty Name="SESSION_TIMEOUT_MINUTES" ColumnName="SESSION_TIMEOUT_MINUTES" />
+                <ScalarProperty Name="LDAP_AUTHENTICATION_YN" ColumnName="LDAP_AUTHENTICATION_YN" />
+                <ScalarProperty Name="LDAP_HOST" ColumnName="LDAP_HOST" />
+                <ScalarProperty Name="LDAP_BIND_USERID" ColumnName="LDAP_BIND_USERID" />
+                <ScalarProperty Name="LDAP_BIND_PASSWORD" ColumnName="LDAP_BIND_PASSWORD" />
+                <ScalarProperty Name="LDAP_HOST_TYPE" ColumnName="LDAP_HOST_TYPE" />
+                <ScalarProperty Name="LDAP_CONTEXT" ColumnName="LDAP_CONTEXT" />
+                <ScalarProperty Name="LDAP_OBJECTCLASS" ColumnName="LDAP_OBJECTCLASS" />
+                <ScalarProperty Name="EXTERNAL_AUTHENTICATION_YN" ColumnName="EXTERNAL_AUTHENTICATION_YN" />
+                <ScalarProperty Name="EXT_AUTH_COOKIE_NAME" ColumnName="EXT_AUTH_COOKIE_NAME" />
+                <ScalarProperty Name="EXT_AUTH_DELETE_COOKIE_YN" ColumnName="EXT_AUTH_DELETE_COOKIE_YN" />
+                <ScalarProperty Name="SMTP_SERVER_USERID" ColumnName="SMTP_SERVER_USERID" />
+                <ScalarProperty Name="SMTP_SERVER_PASSWORD" ColumnName="SMTP_SERVER_PASSWORD" />
+                <ScalarProperty Name="SMTP_SERVER_SSL_YN" ColumnName="SMTP_SERVER_SSL_YN" />
+                <ScalarProperty Name="NOTIFICATION_PROVIDER" ColumnName="NOTIFICATION_PROVIDER" />
+                <ScalarProperty Name="NOTIFICATION_USER_LOC" ColumnName="NOTIFICATION_USER_LOC" />
+                <ScalarProperty Name="NOTIFICATION_SERVER_URL" ColumnName="NOTIFICATION_SERVER_URL" />
+                <ScalarProperty Name="NOTIF_USERS_REFRESH" ColumnName="NOTIF_USERS_REFRESH" />
+                <ScalarProperty Name="NOTIF_USERS_LAST_REFRESH" ColumnName="NOTIF_USERS_LAST_REFRESH" />
+                <ScalarProperty Name="SURVEY_RENAME" ColumnName="SURVEY_RENAME" />
+                <ScalarProperty Name="SURVEY_RENAME_PLURAL" ColumnName="SURVEY_RENAME_PLURAL" />
+                <ScalarProperty Name="NOTIFICATION_SHOW_USERS" ColumnName="NOTIFICATION_SHOW_USERS" />
+                <ScalarProperty Name="GEN_REPORT_TIMESTAMP_YN" ColumnName="GEN_REPORT_TIMESTAMP_YN" />
+                <ScalarProperty Name="EMAIL_FORGOTTEN_PASSWORD_YN" ColumnName="EMAIL_FORGOTTEN_PASSWORD_YN" />
+                <ScalarProperty Name="FORGOTTEN_PASSWORD_MSG" ColumnName="FORGOTTEN_PASSWORD_MSG" />
+                <ScalarProperty Name="GEN_REPORT_NATIVEAPPS_YN" ColumnName="GEN_REPORT_NATIVEAPPS_YN" />
+                <ScalarProperty Name="SMTP_RETURNEMAIL" ColumnName="SMTP_RETURNEMAIL" />
+                <ScalarProperty Name="SP_GROUPS_YN" ColumnName="SP_GROUPS_YN" />
+                <ScalarProperty Name="NAVARRE_YN" ColumnName="NAVARRE_YN" />
+                <ScalarProperty Name="NAVARRE_DB" ColumnName="NAVARRE_DB" />
+                <ScalarProperty Name="NAVARRE_SERVER" ColumnName="NAVARRE_SERVER" />
+                <ScalarProperty Name="NAVARRE_USER" ColumnName="NAVARRE_USER" />
+                <ScalarProperty Name="NAVARRE_PASS" ColumnName="NAVARRE_PASS" />
+                <ScalarProperty Name="IDASH_IP" ColumnName="IDASH_IP" />
+                <ScalarProperty Name="IDASH_INSTANCE_NAME" ColumnName="IDASH_INSTANCE_NAME" />
+                <ScalarProperty Name="IDASH_PORT" ColumnName="IDASH_PORT" />
+                <ScalarProperty Name="notification_api_url" ColumnName="notification_api_url" />
+                <ScalarProperty Name="SPMnuServerID" ColumnName="SPMnuServerID" />
+                <ScalarProperty Name="SPMnuUserID" ColumnName="SPMnuUserID" />
+                <ScalarProperty Name="SPMnuPassword" ColumnName="SPMnuPassword" />
+                <ScalarProperty Name="SPMnuDBName" ColumnName="SPMnuDBName" />
+                <ScalarProperty Name="EmailPending" ColumnName="EmailPending" />
+                <ScalarProperty Name="EmailApprove" ColumnName="EmailApprove" />
+                <ScalarProperty Name="LDAP_email" ColumnName="LDAP_email" />
+                <ScalarProperty Name="MIR3_REFRESH" ColumnName="MIR3_REFRESH" />
+                <ScalarProperty Name="INCIDENTTNAME" ColumnName="INCIDENTTNAME" />
+                <ScalarProperty Name="INCIDENTBNAME" ColumnName="INCIDENTBNAME" />
+                <ScalarProperty Name="HOME_TAB" ColumnName="HOME_TAB" />
+                <ScalarProperty Name="BIND_CONTEXT" ColumnName="BIND_CONTEXT" />
+                <ScalarProperty Name="USER_INIT_NAME" ColumnName="USER_INIT_NAME" />
+                <ScalarProperty Name="USER_INIT_PASS" ColumnName="USER_INIT_PASS" />
+                <ScalarProperty Name="USER_INIT_PASS_KEY" ColumnName="USER_INIT_PASS_KEY" />
+                <ScalarProperty Name="USER_INIT_PASS_IV" ColumnName="USER_INIT_PASS_IV" />
+                <ScalarProperty Name="USER_INIT_CUST_ID" ColumnName="USER_INIT_CUST_ID" />
+                <ScalarProperty Name="USER_INIT_TEMP_ID" ColumnName="USER_INIT_TEMP_ID" />
+                <ScalarProperty Name="USER_INIT_URL" ColumnName="USER_INIT_URL" />
+                <ScalarProperty Name="LDAP_RETRY" ColumnName="LDAP_RETRY" />
+                <ScalarProperty Name="SIGNON_IMG" ColumnName="SIGNON_IMG" />
+                <ScalarProperty Name="SAML_ISSUER_CERT" ColumnName="SAML_ISSUER_CERT" />
+                <ScalarProperty Name="SAML_SLO_URL" ColumnName="SAML_SLO_URL" />
+                <ScalarProperty Name="SAML_URL" ColumnName="SAML_URL" />
+                <ScalarProperty Name="SAML_YN" ColumnName="SAML_YN" />
+                <ScalarProperty Name="DOC_TAB" ColumnName="DOC_TAB" />
+                <ScalarProperty Name="DELETE_DOC_YN" ColumnName="DELETE_DOC_YN" />
+                <ScalarProperty Name="DISABLED_USER_MSG" ColumnName="DISABLED_USER_MSG" />
+                <ScalarProperty Name="EXPIRATION_DATE" ColumnName="EXPIRATION_DATE" />
+                <ScalarProperty Name="RESET_PASSWORD_MSG" ColumnName="RESET_PASSWORD_MSG" />
+                <ScalarProperty Name="SP_APP_VERSION" ColumnName="SP_APP_VERSION" />
+                <ScalarProperty Name="TOKEN_EXPIRATION" ColumnName="TOKEN_EXPIRATION" />
+                <ScalarProperty Name="USER_PROFILE_EDIT_YN" ColumnName="USER_PROFILE_EDIT_YN" />
+                <ScalarProperty Name="MAX_TOTAL_USERS" ColumnName="MAX_TOTAL_USERS" />
+                <ScalarProperty Name="MAX_CONCURRENT_USERS" ColumnName="MAX_CONCURRENT_USERS" />
+                <ScalarProperty Name="USER_NAME_EDIT_YN" ColumnName="USER_NAME_EDIT_YN" />
+                <ScalarProperty Name="USER_EMAIL_EDIT_YN" ColumnName="USER_EMAIL_EDIT_YN" />
+                <ScalarProperty Name="USER_PHONE_EDIT_YN" ColumnName="USER_PHONE_EDIT_YN" />
+                <ScalarProperty Name="USER_TITLE_EDIT_YN" ColumnName="USER_TITLE_EDIT_YN" />
+                <ScalarProperty Name="USER_LOCATION_EDIT_YN" ColumnName="USER_LOCATION_EDIT_YN" />
+                <ScalarProperty Name="USER_DEPARTMENT_EDIT_YN" ColumnName="USER_DEPARTMENT_EDIT_YN" />
+                <ScalarProperty Name="SMTP_USER_DISABLED_TPL" ColumnName="SMTP_USER_DISABLED_TPL" />
+                <ScalarProperty Name="SMTP_TOKEN_TPL" ColumnName="SMTP_TOKEN_TPL" />
+                <ScalarProperty Name="SMTP_SERVER_PORT" ColumnName="SMTP_SERVER_PORT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SUSPLAN_SEC_HDR">
+            <EntityTypeMapping TypeName="UNIT_TESTModel.SUSPLAN_SEC_HDR">
+              <MappingFragment StoreEntitySet="SUSPLAN_SEC_HDR">
+                <ScalarProperty Name="SECTION_ID" ColumnName="SECTION_ID" />
+                <ScalarProperty Name="TOC_ID" ColumnName="TOC_ID" />
+                <ScalarProperty Name="SECTION_NAME" ColumnName="SECTION_NAME" />
+                <ScalarProperty Name="NEXT_SECTION_ID" ColumnName="NEXT_SECTION_ID" />
+                <ScalarProperty Name="PREVIOUS_SECTION_ID" ColumnName="PREVIOUS_SECTION_ID" />
+                <ScalarProperty Name="PARENT_SECTION_ID" ColumnName="PARENT_SECTION_ID" />
+                <ScalarProperty Name="CHILD_SECTION_ID" ColumnName="CHILD_SECTION_ID" />
+                <ScalarProperty Name="FIRST_TOCDOC_ID" ColumnName="FIRST_TOCDOC_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SUSPLAN_TOC_DOCUMENT">
+            <EntityTypeMapping TypeName="UNIT_TESTModel.SUSPLAN_TOC_DOCUMENT">
+              <MappingFragment StoreEntitySet="SUSPLAN_TOC_DOCUMENT">
+                <ScalarProperty Name="TOCDOC_ID" ColumnName="TOCDOC_ID" />
+                <ScalarProperty Name="SECTION_ID" ColumnName="SECTION_ID" />
+                <ScalarProperty Name="PREVIOUS_TOCDOC_ID" ColumnName="PREVIOUS_TOCDOC_ID" />
+                <ScalarProperty Name="NEXT_TOCDOC_ID" ColumnName="NEXT_TOCDOC_ID" />
+                <ScalarProperty Name="DOCUMENT_LABEL" ColumnName="DOCUMENT_LABEL" />
+                <ScalarProperty Name="DOC_OPTION" ColumnName="DOC_OPTION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SUSPLAN_TOC_HEADER">
+            <EntityTypeMapping TypeName="UNIT_TESTModel.SUSPLAN_TOC_HEADER">
+              <MappingFragment StoreEntitySet="SUSPLAN_TOC_HEADER">
+                <ScalarProperty Name="TOC_ID" ColumnName="TOC_ID" />
+                <ScalarProperty Name="NODE_ID" ColumnName="NODE_ID" />
+                <ScalarProperty Name="REPORT_NAME" ColumnName="REPORT_NAME" />
+                <ScalarProperty Name="TOC_TYPE" ColumnName="TOC_TYPE" />
+                <ScalarProperty Name="FIRST_SECTION_ID" ColumnName="FIRST_SECTION_ID" />
+                <ScalarProperty Name="TOC_CASCADES_YN" ColumnName="TOC_CASCADES_YN" />
+                <ScalarProperty Name="TOC_PAGE" ColumnName="TOC_PAGE" />
+                <ScalarProperty Name="FOOTER_TEXT_LEFT" ColumnName="FOOTER_TEXT_LEFT" />
+                <ScalarProperty Name="FOOTER_TEXT_CENTER" ColumnName="FOOTER_TEXT_CENTER" />
+                <ScalarProperty Name="FOOTER_TEXT_RIGHT" ColumnName="FOOTER_TEXT_RIGHT" />
+                <ScalarProperty Name="STD_PAGE_NUMBERS" ColumnName="STD_PAGE_NUMBERS" />
+                <ScalarProperty Name="TOC_LAYOUT" ColumnName="TOC_LAYOUT" />
+                <ScalarProperty Name="TOC_LEFT_MARGIN" ColumnName="TOC_LEFT_MARGIN" />
+                <ScalarProperty Name="TOC_RIGHT_MARGIN" ColumnName="TOC_RIGHT_MARGIN" />
+                <ScalarProperty Name="TOC_FONT" ColumnName="TOC_FONT" />
+                <ScalarProperty Name="TOC_FONT_SIZE" ColumnName="TOC_FONT_SIZE" />
+                <ScalarProperty Name="HEADER_FONT" ColumnName="HEADER_FONT" />
+                <ScalarProperty Name="HEADER_FONT_SIZE" ColumnName="HEADER_FONT_SIZE" />
+                <ScalarProperty Name="HEADER_TEXT" ColumnName="HEADER_TEXT" />
+                <ScalarProperty Name="FOOTER_FONT" ColumnName="FOOTER_FONT" />
+                <ScalarProperty Name="FOOTER_FONT_SIZE" ColumnName="FOOTER_FONT_SIZE" />
+                <ScalarProperty Name="FOOTER_START_ON_DOC" ColumnName="FOOTER_START_ON_DOC" />
+                <ScalarProperty Name="HEADER_START_ON_DOC" ColumnName="HEADER_START_ON_DOC" />
+                <ScalarProperty Name="FOOTER_MARGIN_B" ColumnName="FOOTER_MARGIN_B" />
+                <ScalarProperty Name="FOOTER_MARGIN_R" ColumnName="FOOTER_MARGIN_R" />
+                <ScalarProperty Name="FOOTER_MARGIN_L" ColumnName="FOOTER_MARGIN_L" />
+                <ScalarProperty Name="COVER_PAGE" ColumnName="COVER_PAGE" />
+                <ScalarProperty Name="COVER_PAGE_ID" ColumnName="COVER_PAGE_ID" />
+                <ScalarProperty Name="COVER_PAGE_YN" ColumnName="COVER_PAGE_YN" />
+                <ScalarProperty Name="TOC_YN" ColumnName="TOC_YN" />
+                <ScalarProperty Name="FOOTER_OPT_C" ColumnName="FOOTER_OPT_C" />
+                <ScalarProperty Name="FOOTER_OPT_R" ColumnName="FOOTER_OPT_R" />
+                <ScalarProperty Name="FOOTER_OPT_L" ColumnName="FOOTER_OPT_L" />
+                <ScalarProperty Name="FOOTER_YN" ColumnName="FOOTER_YN" />
+                <ScalarProperty Name="SVY" ColumnName="SVY" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SUSPLAN_REPORT_Q">
+            <EntityTypeMapping TypeName="UNIT_TESTModel.SUSPLAN_REPORT_Q">
+              <MappingFragment StoreEntitySet="SUSPLAN_REPORT_Q">
+                <ScalarProperty Name="FIRST_SEC_ID" ColumnName="FIRST_SEC_ID" />
+                <ScalarProperty Name="ERROR_MESSAGE" ColumnName="ERROR_MESSAGE" />
+                <ScalarProperty Name="CONTROL_FILE" ColumnName="CONTROL_FILE" />
+                <ScalarProperty Name="DOCUMENT_LABEL" ColumnName="DOCUMENT_LABEL" />
+                <ScalarProperty Name="CREATE_DOCUMENT_YN" ColumnName="CREATE_DOCUMENT_YN" />
+                <ScalarProperty Name="RENAME_NAME" ColumnName="RENAME_NAME" />
+                <ScalarProperty Name="TARGET_NAME" ColumnName="TARGET_NAME" />
+                <ScalarProperty Name="TARGET_DIRECTORY" ColumnName="TARGET_DIRECTORY" />
+                <ScalarProperty Name="FINISHED_DATE" ColumnName="FINISHED_DATE" />
+                <ScalarProperty Name="SUBMITTED_DATE" ColumnName="SUBMITTED_DATE" />
+                <ScalarProperty Name="STARTED_DATE" ColumnName="STARTED_DATE" />
+                <ScalarProperty Name="STD_PAGE_NUMBERS" ColumnName="STD_PAGE_NUMBERS" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+                <ScalarProperty Name="USER_ID" ColumnName="USER_ID" />
+                <ScalarProperty Name="SURVEY_ID" ColumnName="SURVEY_ID" />
+                <ScalarProperty Name="NODE_ID" ColumnName="NODE_ID" />
+                <ScalarProperty Name="TOC_ID" ColumnName="TOC_ID" />
+                <ScalarProperty Name="RQ_ID" ColumnName="RQ_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

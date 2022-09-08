@@ -1,0 +1,17 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+bin
+/SP4_API/Connected Services/Application Insights
+.vs
+.vscode
+obj
+/*/packages
+/*/Properties/PublishProfiles
+/SP4_API/Migrations
+/SP4_API/.editorconfig
+*.csproj.user
+/DocumentCheckService
+/ReportProcess/publish
+*_TemporaryKey.pfx

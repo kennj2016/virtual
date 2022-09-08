@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a61c01ae48fa41f7b0058fcac93be265" Name="Diagram1">
+        <EntityTypeShape EntityType="UNIT_TESTModel.SUSPLAN_DOCUMENTS" Width="1.5" PointX="3" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="UNIT_TESTModel.SUSPLAN_NODES" Width="1.5" PointX="0.75" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="UNIT_TESTModel.SUSPLAN_PARMS" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="UNIT_TESTModel.SUSPLAN_SEC_HDR" Width="1.5" PointX="5.25" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="UNIT_TESTModel.SUSPLAN_TOC_DOCUMENT" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="UNIT_TESTModel.SUSPLAN_TOC_HEADER" Width="1.5" PointX="3" PointY="6" IsExpanded="true" />
+        <AssociationConnector Association="UNIT_TESTModel.FK_dbo_SUSPLAN_DOCUMENTS_1" ManuallyRouted="false" />
+        <AssociationConnector Association="UNIT_TESTModel.FK_dbo_SUSPLAN_TOC_HEADER_1" ManuallyRouted="false" />
+        <AssociationConnector Association="UNIT_TESTModel.FK_dbo_SUSPLAN_SEC_HDR_1" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="UNIT_TESTModel.SUSPLAN_REPORT_Q" Width="1.5" PointX="5.25" PointY="9.75" />
+        <AssociationConnector Association="UNIT_TESTModel.FK_dbo_SUSPLAN_REPORT_Q_1" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
